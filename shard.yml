@@ -1,0 +1,17 @@
+name: wfc
+version: 0.1.0
+
+authors:
+  - Globoplox <globoplox@gmail.com>
+
+targets:
+  wfc:
+    main: src/wfc.cr
+
+dependencies:
+  bmp:
+    github: globoplox/bmp
+
+crystal: 1.7.2
+
+license: MIT
