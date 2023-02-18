@@ -1,6 +1,7 @@
 require "bit_array"
 
-class Constraint(T)
+# Hold a memory packed superimposed n dimension state.
+class Superimposed(T)
   
   property dimensions : Indexable(Int32)
   property state : BitArray
@@ -27,7 +28,6 @@ class Constraint(T)
     0.upto @components.size - 1 do |i|
       @state[offset + i] = @components[i].in? values
     end
-    @dirty = true
   end
 
   def [](coordinates : Indexable(Int32)) : Indexable(T)
@@ -39,20 +39,4 @@ class Constraint(T)
     end
     values
   end
-
-  def apply_constraint
-  end
-
-  def apply_constraint_until_clean
-    loop do
-      @dirty = false
-      apply_constraint
-      break unless @dirty
-    end
-  end
-
-  def entropy
-    
-  end
-
 end
